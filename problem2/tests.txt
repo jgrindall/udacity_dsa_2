@@ -1,0 +1,74 @@
+# Test basic
+>>> from problem_2 import FileUtils
+>>> files = FileUtils.find_files(".txt", "./test1")
+>>> print(files)
+['./test1\\a\\a.py.txt', './test1\\a\\a.txt', './test1\\a.py.txt', './test1\\a.txt', './test1\\b\\a\\a.py.txt', './test1\\b\\a\\a.txt', './test1\\b\\a.py.txt', './test1\\b\\a.txt', './test1\\b\\b\\a.py.txt', './test1\\b\\b\\a.txt', './test1\\b\\c\\a.py.txt', './test1\\b\\c\\a.txt', './test1\\c\\a\\a\\a.py.txt', './test1\\c\\a\\a\\a.txt', './test1\\c\\a\\a.py.txt', './test1\\c\\a\\a.txt', './test1\\c\\a.py.txt', './test1\\c\\a.txt', './test1\\c\\b\\a.py.txt', './test1\\c\\b\\a.txt', './test1\\c\\b\\b\\a.py.txt', './test1\\c\\b\\b\\a.txt', './test1\\c\\c\\a.py.txt', './test1\\c\\c\\a.txt', './test1\\c\\c\\c\\a.py.txt', './test1\\c\\c\\c\\a.txt']
+>>> len(files)
+26
+
+
+
+# Test basic - folder does not exist
+>>> from problem_2 import FileUtils
+>>> files = FileUtils.find_files(".TXT", "./testDoesNotExist")
+>>> print(files)
+[]
+>>> len(files)
+0
+
+
+# Test basic - files do not exist
+>>> from problem_2 import FileUtils
+>>> files = FileUtils.find_files(".TXT", "./test1")
+>>> print(files)
+[]
+>>> len(files)
+0
+
+# Test basic - empty
+>>> from problem_2 import FileUtils
+>>> files = FileUtils.find_files(".txt", "./test1/d")
+>>> print(files)
+[]
+>>> len(files)
+0
+
+
+# Test basic - subfolder
+>>> from problem_2 import FileUtils
+>>> files = FileUtils.find_files(".txt", "./test1/a")
+>>> print(files)
+['./test1/a\\a.py.txt', './test1/a\\a.txt']
+>>> len(files)
+2
+
+
+# Test basic - subfolder
+>>> from problem_2 import FileUtils
+>>> files = FileUtils.find_files(".txt", "./test1/b")
+>>> print(files)
+['./test1/b\\a\\a.py.txt', './test1/b\\a\\a.txt', './test1/b\\a.py.txt', './test1/b\\a.txt', './test1/b\\b\\a.py.txt', './test1/b\\b\\a.txt', './test1/b\\c\\a.py.txt', './test1/b\\c\\a.txt']
+>>> len(files)
+8
+
+
+# Test basic - subfolder
+>>> from problem_2 import FileUtils
+>>> files = FileUtils.find_files(".txt", "./test1/c")
+>>> print(files)
+['./test1/c\\a\\a\\a.py.txt', './test1/c\\a\\a\\a.txt', './test1/c\\a\\a.py.txt', './test1/c\\a\\a.txt', './test1/c\\a.py.txt', './test1/c\\a.txt', './test1/c\\b\\a.py.txt', './test1/c\\b\\a.txt', './test1/c\\b\\b\\a.py.txt', './test1/c\\b\\b\\a.txt', './test1/c\\c\\a.py.txt', './test1/c\\c\\a.txt', './test1/c\\c\\c\\a.py.txt', './test1/c\\c\\c\\a.txt']
+>>> len(files)
+14
+
+
+
+
+
+
+
+
+
+
+
+
+

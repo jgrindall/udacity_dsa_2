@@ -1,0 +1,88 @@
+# Test basic
+>>> from problem_6 import LinkedList, SetUtils
+>>> l1 = LinkedList.from_list([1, 2, 3, 4])
+>>> l2 = LinkedList.from_list([3, 4, 5])
+>>> print(SetUtils.union(l1, l2).to_list())
+[1, 2, 3, 4, 5]
+>>> print(SetUtils.intersection(l1, l2).to_list())
+[3, 4]
+
+
+# Test identical
+>>> from problem_6 import LinkedList, SetUtils
+>>> l1 = LinkedList.from_list([1, 2, 3, 4])
+>>> l2 = LinkedList.from_list([1, 2, 3, 4])
+>>> print(SetUtils.union(l1, l2).to_list())
+[1, 2, 3, 4]
+>>> print(SetUtils.intersection(l1, l2).to_list())
+[1, 2, 3, 4]
+
+
+
+# Test no intersection
+>>> from problem_6 import LinkedList, SetUtils
+>>> l1 = LinkedList.from_list([1, 2, 3, 4])
+>>> l2 = LinkedList.from_list([8, 9])
+>>> print(SetUtils.union(l1, l2).to_list())
+[1, 2, 3, 4, 8, 9]
+>>> print(SetUtils.intersection(l1, l2).to_list())
+[]
+
+
+
+# Test empty
+>>> from problem_6 import LinkedList, SetUtils
+>>> l1 = LinkedList.from_list([])
+>>> l2 = LinkedList.from_list([1, 2, 3])
+>>> print(SetUtils.union(l1, l1).to_list())
+[]
+>>> print(SetUtils.intersection(l1, l1).to_list())
+[]
+>>> print(SetUtils.union(l2, l2).to_list())
+[1, 2, 3]
+>>> print(SetUtils.intersection(l2, l2).to_list())
+[1, 2, 3]
+>>> print(SetUtils.union(l1, l2).to_list())
+[1, 2, 3]
+>>> print(SetUtils.intersection(l1, l2).to_list())
+[]
+
+
+
+# Tests from the rubric
+>>> from problem_6 import LinkedList, SetUtils
+>>> l1 = LinkedList.from_list([3,2,4,35,6,65,6,4,3,21])
+>>> l2 = LinkedList.from_list([6,32,4,9,6,1,11,21,1])
+>>> print(SetUtils.union(l1, l2).to_list())
+[1, 2, 3, 4, 6, 9, 11, 21, 32, 35, 65]
+>>> print(SetUtils.intersection(l1, l2).to_list())
+[4, 6, 21]
+
+
+
+# Tests from the rubric
+>>> from problem_6 import LinkedList, SetUtils
+>>> l1 = LinkedList.from_list([3,2,4,35,6,65,6,4,3,23])
+>>> l2 = LinkedList.from_list([1,7,8,9,11,21,1])
+>>> print(SetUtils.union(l1, l2).to_list())
+[1, 2, 3, 4, 6, 7, 8, 9, 11, 21, 23, 35, 65]
+>>> print(SetUtils.intersection(l1, l2).to_list())
+[]
+
+
+
+# Test repeats
+>>> from problem_6 import LinkedList, SetUtils
+>>> l1 = LinkedList.from_list([1, 1, 2, 2, 3, 3])
+>>> l2 = LinkedList.from_list([3, 3, 3, 3, 3, 3])
+>>> print(SetUtils.union(l1, l2).to_list())
+[1, 2, 3]
+>>> print(SetUtils.intersection(l1, l2).to_list())
+[3]
+
+
+
+
+
+
+

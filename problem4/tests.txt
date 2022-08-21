@@ -1,0 +1,123 @@
+# Test basic
+>>> from problem_4 import Group
+>>> root = Group("root")
+>>> Group.is_user_in_group("user", root)
+False
+>>> root.add_user("u1")
+>>> Group.is_user_in_group("u1", root)
+True
+>>> Group.is_user_in_group("u2", root)
+False
+
+
+
+
+# Test users and groups
+>>> from problem_4 import Group
+>>> root = Group("root")
+>>> root.add_user('u1')
+>>> root.add_user('u2')
+>>> root.add_user('u3')
+>>> g1 = Group("g1")
+>>> g1.add_user('u4')
+>>> g1.add_user('u5')
+>>> root.add_group(g1)
+>>> g2 = Group("g2")
+>>> g1.add_group(g2)
+>>> g2.add_user('u6')
+>>> g2.add_user('u7')
+>>> root.add_group(g2)
+>>> Group.is_user_in_group("user", root)
+False
+>>> Group.is_user_in_group("u1", root)
+True
+>>> Group.is_user_in_group("u10", root)
+False
+>>> Group.is_user_in_group("u4", root)
+True
+>>> Group.is_user_in_group("u7", root)
+True
+>>> Group.is_user_in_group("u4", g1)
+True
+>>> Group.is_user_in_group("u7", g2)
+True
+>>> Group.is_user_in_group("u7", g1)
+True
+>>> Group.is_user_in_group("u2", g1)
+False
+>>> Group.is_user_in_group("u2", g2)
+False
+>>> Group.is_user_in_group("u4", g2)
+False
+
+
+
+#Test circularity
+>>> from problem_4 import Group
+>>> root = Group("root")
+>>> root.add_user('u1')
+>>> root.add_user('u2')
+>>> root.add_user('u3')
+>>> g1 = Group("g1")
+>>> g1.add_user('u4')
+>>> g1.add_user('u5')
+>>> root.add_group(g1)
+>>> g2 = Group("g2")
+>>> g1.add_group(g2)
+>>> g2.add_user('u6')
+>>> g2.add_user('u7')
+>>> root.add_group(g2)
+>>> g1.add_group(root)
+>>> Group.is_user_in_group("u1", root)
+True
+>>> Group.is_user_in_group("u2", root)
+True
+>>> Group.is_user_in_group("u1", g1)
+True
+>>> Group.is_user_in_group("u4", g1)
+True
+>>> Group.is_user_in_group("u6", g1)
+True
+>>> Group.is_user_in_group("u4", g2)
+False
+
+
+
+#Test circularity using root
+>>> from problem_4 import Group
+>>> root = Group("root")
+>>> root.add_user('u1')
+>>> root.add_user('u2')
+>>> root.add_user('u3')
+>>> g1 = Group("g1")
+>>> g1.add_user('u4')
+>>> g1.add_user('u5')
+>>> root.add_group(g1)
+>>> g2 = Group("g2")
+>>> g1.add_group(g2)
+>>> g2.add_user('u6')
+>>> g2.add_user('u7')
+>>> root.add_group(g2)
+>>> g2.add_group(root)
+>>> Group.is_user_in_group("u1", root)
+True
+>>> Group.is_user_in_group("u2", root)
+True
+>>> Group.is_user_in_group("u5", root)
+True
+>>> Group.is_user_in_group("u6", root)
+True
+
+
+
+
+
+
+
+
+
+
+
+
+
+

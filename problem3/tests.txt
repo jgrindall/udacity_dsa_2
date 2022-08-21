@@ -1,0 +1,244 @@
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(1), Node(2), Node(3)])
+>>> str(heap.elements)
+'[Node:1, Node:2, Node:3]'
+>>> heap.is_valid()
+True
+
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(1), Node(3), Node(2)])
+>>> str(heap.elements)
+'[Node:1, Node:3, Node:2]'
+>>> heap.is_valid()
+True
+
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(2), Node(1), Node(3)])
+>>> str(heap.elements)
+'[Node:1, Node:2, Node:3]'
+>>> heap.is_valid()
+True
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(2), Node(3), Node(1)])
+>>> str(heap.elements)
+'[Node:1, Node:3, Node:2]'
+>>> heap.is_valid()
+True
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(3), Node(1), Node(2)])
+>>> str(heap.elements)
+'[Node:1, Node:3, Node:2]'
+>>> heap.is_valid()
+True
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(3), Node(2), Node(1)])
+>>> str(heap.elements)
+'[Node:1, Node:3, Node:2]'
+>>> heap.is_valid()
+True
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(6), Node(8), Node(4)])
+>>> str(heap.elements)
+'[Node:4, Node:8, Node:6]'
+>>> heap.is_valid()
+True
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(6), Node(8), Node(4), Node(5)])
+>>> str(heap.elements)
+'[Node:4, Node:5, Node:6, Node:8]'
+>>> heap.is_valid()
+True
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(6), Node(8), Node(4), Node(5), Node(1)])
+>>> str(heap.elements)
+'[Node:1, Node:4, Node:6, Node:8, Node:5]'
+>>> heap.is_valid()
+True
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(6), Node(8), Node(4), Node(5), Node(1), Node(2)])
+>>> str(heap.elements)
+'[Node:1, Node:4, Node:2, Node:8, Node:5, Node:6]'
+>>> heap.is_valid()
+True
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(6), Node(8), Node(4), Node(5), Node(1), Node(2), Node(9)])
+>>> str(heap.elements)
+'[Node:1, Node:4, Node:2, Node:8, Node:5, Node:6, Node:9]'
+>>> heap.is_valid()
+True
+
+
+# Test minheap - basics
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(7), Node(3), Node(7), Node(2), Node(6)])
+>>> heap.is_valid()
+True
+>>> mins = []
+>>> while True:
+...   min = heap.remove()
+...   if min == None:
+...      break
+...   else:
+...      mins.append(min.value)
+>>> print(mins)
+[2, 3, 6, 7, 7]
+
+
+
+# test minheap - removing
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(6), Node(8), Node(4), Node(5), Node(1), Node(2), Node(9)])
+>>> heap.is_valid()
+True
+>>> mins = [heap.remove().value, heap.remove().value, heap.remove().value]
+>>> print(mins)
+[1, 2, 4]
+>>> str(heap.elements)
+'[Node:5, Node:8, Node:6, Node:9]'
+>>> heap.is_valid()
+True
+
+
+# test minheap - removing
+>>> from problem_3 import MinHeap, Node
+>>> heap = MinHeap([Node(6), Node(8), Node(4), Node(5), Node(1), Node(2), Node(9)])
+>>> heap.is_valid()
+True
+>>> mins = []
+>>> while True:
+...   min = heap.remove()
+...   if min == None:
+...      break
+...   else:
+...      mins.append(min.value)
+...   if not heap.is_valid():
+...      break
+>>> print(mins)
+[1, 2, 4, 5, 6, 8, 9]
+
+
+
+# test minheap - large
+>>> from problem_3 import MinHeap, Node
+>>> size = 1000
+>>> heap = MinHeap()
+>>> entries = sorted(range(0, size))
+>>> for item in entries:
+...   heap.insert(Node(item))
+>>> heap.is_valid()
+True
+>>> mins = []
+>>> while True:
+...   min = heap.remove()
+...   if min == None:
+...      break
+...   else:
+...      mins.append(min.value)
+...   if not heap.is_valid():
+...      break
+>>> print(str(mins) == str(list(range(size))))
+True
+
+
+
+#test Huffman - simple
+>>> from problem_3 import MinHeap, Node, Huffman
+>>> h = Huffman("AB")
+>>> table = h.get_encoding_table()
+>>> print(table)
+{'A': '0', 'B': '1'}
+>>> keys = sorted(list(table.keys()))
+>>> print(str(keys))
+['A', 'B']
+
+
+
+#test Huffman - from the rubric
+>>> from problem_3 import MinHeap, Node, Huffman
+>>> h = Huffman("AAAAAAABBBCCCCCCCDDEEEEEE")
+>>> keys = sorted(list(h.get_encoding_table().keys()))
+>>> print(str(keys))
+['A', 'B', 'C', 'D', 'E']
+
+
+#test Huffman - encode and decode
+>>> from problem_3 import MinHeap, Node, Huffman
+>>> h = Huffman("AAAAAAABBBCCCCCCCDDEEEEEE")
+>>> enc = h.get_huffman_encoding("ABC")
+>>> dec = h.get_huffman_decoding(enc)
+>>> dec == "ABC"
+True
+
+
+#test Huffman - encode and decode
+>>> from problem_3 import MinHeap, Node, Huffman
+>>> h = Huffman("AAAAAAABBBCCCCCCCDDEEEEEE")
+>>> enc = h.get_huffman_encoding("A")
+>>> dec = h.get_huffman_decoding(enc)
+>>> dec == "A"
+True
+
+
+
+#test Huffman - encode and decode
+>>> from problem_3 import MinHeap, Node, Huffman
+>>> h = Huffman("AAAAAAABBBCCCCCCCDDEEEEEE")
+>>> enc = h.get_huffman_encoding("AAAAAAAAAABBBBBBBBBBCCCCCCCCCCEEEEEEEEEE")
+>>> dec = h.get_huffman_decoding(enc)
+>>> dec == "AAAAAAAAAABBBBBBBBBBCCCCCCCCCCEEEEEEEEEE"
+True
+
+
+
+#test Huffman - large
+>>> from problem_3 import MinHeap, Node, Huffman
+>>> import random
+>>> s = ""
+>>> for i in range(0, 1000):
+...   s += random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYX")
+>>> h = Huffman(s)
+>>> enc = h.get_huffman_encoding("HELLO")
+>>> dec = h.get_huffman_decoding(enc)
+>>> dec == "HELLO"
+True
+
+
+
+
+#test Huffman - large 2
+>>> from problem_3 import MinHeap, Node, Huffman
+>>> import random
+>>> s = ""
+>>> for i in range(0, 5000):
+...   s += random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYX")
+>>> h = Huffman(s)
+>>> m = ""
+>>> for i in range(0, 1000):
+...   m += random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYX")
+>>> enc = h.get_huffman_encoding(m)
+>>> dec = h.get_huffman_decoding(enc)
+>>> dec == m
+True
+
+
