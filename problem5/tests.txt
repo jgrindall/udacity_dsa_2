@@ -1,0 +1,124 @@
+# Test basic
+>>> from problem_1 import LRUCache
+>>> c = LRUCache(5)
+>>> str(c)
+'LRUCache:[]'
+>>> c.get(5)
+-1
+
+
+# Test basic set
+>>> from problem_1 import LRUCache
+>>> c = LRUCache(5)
+>>> c.set(1, 11)
+>>> c.set(2, 22)
+>>> c.set(3, 33)
+>>> c.set(4, 44)
+>>> str(c)
+'LRUCache:[[1, 11], [2, 22], [3, 33], [4, 44]]'
+>>> c.get(3)
+33
+>>> c.get(5)
+-1
+
+
+# Test basic set and get, full capacity
+>>> from problem_1 import LRUCache
+>>> c = LRUCache(5)
+>>> c.set(1, 11)
+>>> c.set(2, 22)
+>>> c.set(3, 33)
+>>> c.set(4, 44)
+>>> c.set(5, 55)
+>>> str(c)
+'LRUCache:[[1, 11], [2, 22], [3, 33], [4, 44], [5, 55]]'
+>>> c.get(4)
+44
+>>> c.get(5)
+55
+>>> c.get(6)
+-1
+
+
+# Test basic set and get,  capacity exceeded
+>>> from problem_1 import LRUCache
+>>> c = LRUCache(5)
+>>> c.set(1, 11)
+>>> c.set(2, 22)
+>>> c.set(3, 33)
+>>> c.set(4, 44)
+>>> c.set(5, 55)
+>>> c.set(6, 66)
+>>> str(c)
+'LRUCache:[[2, 22], [3, 33], [4, 44], [5, 55], [6, 66]]'
+>>> len(c.dict.keys())
+5
+>>> c.get(1)
+-1
+>>> c.get(5)
+55
+>>> c.get(6)
+66
+
+
+# Test basic set and get, capacity exceeded twice
+>>> from problem_1 import LRUCache
+>>> c = LRUCache(5)
+>>> c.set(1, 11)
+>>> c.set(2, 22)
+>>> c.set(3, 33)
+>>> c.set(4, 44)
+>>> c.set(5, 55)
+>>> c.set(6, 66)
+>>> c.set(7, 77)
+>>> c.set(8, 88)
+>>> c.set(9, 99)
+>>> c.set(10, 1010)
+>>> str(c)
+'LRUCache:[[6, 66], [7, 77], [8, 88], [9, 99], [10, 1010]]'
+>>> len(c.dict.keys())
+5
+>>> c.get(1)
+-1
+>>> c.get(5)
+-1
+>>> c.get(9)
+99
+
+
+# Test cache size 1
+>>> from problem_1 import LRUCache
+>>> c = LRUCache(1)
+>>> for i in range(100000):
+...     c.set(i, i * 100)
+>>> str(c)
+'LRUCache:[[99999, 9999900]]'
+>>> len(c.dict.keys())
+1
+>>> c.get(99999)
+9999900
+>>> c.get(99998)
+-1
+
+
+# Test large cache
+>>> from problem_1 import LRUCache
+>>> c = LRUCache(10000)
+>>> for i in range(100000):
+...     c.set(i, i * 100)
+>>> len(c.dict.keys())
+10000
+>>> c.get(99999)
+9999900
+>>> c.get(99998)
+9999800
+>>> c.get(90000)
+9000000
+>>> c.get(89999)
+-1
+>>> c.get(1)
+-1
+
+
+
+
