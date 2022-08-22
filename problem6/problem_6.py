@@ -31,6 +31,7 @@ class LinkedList:
         node.next = Node(value)
     
     def get_sorted(self):
+        """ return a shallow clone, sorted """
         to_list = self.to_list()
         sorted_list = sorted(to_list)
         return LinkedList.from_list(sorted_list)
@@ -45,10 +46,11 @@ class LinkedList:
         return "LinkedList " + str([v for v in self])
     
     def __str__(self):
-        return "LinkedList " + str([v for v in self])
+        return self.__repr__()
 
     @staticmethod
     def from_list(list):
+        """Helper function, make a new LinkedList"""
         new_list = LinkedList()
         for item in list:
             new_list.append(item)
@@ -60,7 +62,7 @@ class SetUtils:
     def union(l1, l2):
         union = []
         
-        #sort them first and then the algorithm will be simpler
+        #sort them first and then the algorithm will be much simpler
         s1 = l1.get_sorted()
         s2 = l2.get_sorted()
         

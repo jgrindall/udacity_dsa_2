@@ -1,9 +1,16 @@
-# explanation
+# Explanation
 
-maps keys to nodes. Eg..{ 1 -> Node(1, "apple"), 2 -> Node(2, "banana") }
+The Node class stores properties timestamp, data, previous hash, hash and next.
 
-# analysis
+It has some getters and setters to prevent people changing the properties after creation.
 
-O(n)
+Adding a new block consists of walking to the end of the list, and creating the new block at the end.
 
-both time efficiency and space efficiency
+# Analysis
+
+Add a new node is O(n) because we need to traverse the list in one direction.
+
+Storage is also O(n).
+
+
+

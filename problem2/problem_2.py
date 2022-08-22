@@ -7,6 +7,7 @@ class FileUtils:
         paths = []
         
         def _find_files(path):
+            """ Find files that end with 'suffix' in 'path'. Add them to 'paths' """
             if not os.path.exists(path):
                 return
             entries = os.listdir(path)
