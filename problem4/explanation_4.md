@@ -1,5 +1,5 @@
 # Explanation
-==
+
 
 '_is_user_in_group' iterates through the users, checking if the user is found.
 
@@ -11,7 +11,7 @@ Any non-null status means that the group is skipped.
 
 
 # Analysis
-==
+
 
 In the worst case the algorithm will require O(n) steps to find the user, where n represents the total number of users.
 

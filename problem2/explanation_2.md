@@ -1,5 +1,5 @@
 # Explanation
-==
+
 
 '_find_files' iterates through the folder, checking files and calling itself recursively on any subdirectories.
 
@@ -8,7 +8,7 @@ I have not dealt with symlinks which could cause circular loops.
 This would be easy to do by storing a dict mapping paths to whether they have been checked already.
 
 # Analysis
-==
+
 
 In terms of time complexity, we traverse all files, which is O(N) where N is the total number of files.
 
