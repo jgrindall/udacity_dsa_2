@@ -27,7 +27,7 @@ So overall, building the Huffman tree is O(n log n)
 
 In terms of storage, we need O(n) for the tree and O(n) for the encoding table.
 
---
+----
 
 For decoding and encoding we need to look at the compression ratio.
 
@@ -37,7 +37,7 @@ All leaf nodes are at level 'm' of the tree, so 2^m = n
 
 This means that m = O(log n)
 
---
+----
 
 If you encode a message of length 'k', the time complexity is O(k) because we simply use the lookup table.
 
@@ -46,20 +46,28 @@ Each character will be encoded with 'm' bits, so the storage is O(km) = O(k log 
 Eg.
 
 H -> m bits
-E -> m bits
-L -> m bits
-L -> m bits
-0 -> m bits
 
---
+E -> m bits
+
+L -> m bits
+
+L -> m bits
+
+O -> m bits
+
+----
 
 If you decode a message of length 'k' bits, you will get a decoded message of length 'k/m'
 
 
 m bits -> H
+
 m bits -> E
+
 m bits -> L
+
 m bits -> L
+
 m bits -> O
 
 
